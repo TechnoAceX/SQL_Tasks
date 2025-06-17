@@ -58,6 +58,7 @@ INSERT INTO Employee VALUES
 ('E1', 'M1', 'SM1', 'LM1', 'C1'),
 ('E2', 'M2', 'SM3', 'LM2', 'C2');
 
+
 -- Final SQL Query
 SELECT 
     C.company_code,
