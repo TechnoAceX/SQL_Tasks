@@ -47,4 +47,3 @@ FROM ProjectGroups
 ORDER BY 
     Duration DESC,
     Project_Start;
-
