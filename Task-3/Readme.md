@@ -72,14 +72,5 @@
 
 ---
 
-## 🧩 Technologies Used
-- SQL Server / PostgreSQL
-- CTEs (Common Table Expressions)
-- Aggregations, Joins
-- System Views for Security
-- DDL and DML statements
-
----
-
-## 📂 Structure
-
+## 📬 Author
+**Pawan Manghnani**  
