@@ -1,4 +1,5 @@
 -- Task4:- Step 1: Create Tables
+
 CREATE TABLE Contests (
     contest_id INT,
     hacker_id INT,
