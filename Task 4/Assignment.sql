@@ -133,5 +133,3 @@ EXEC AllocateSubjects;
 SELECT * FROM Allotments;
 -- View Unallotted Students
 SELECT * FROM UnallotedStudents;
-
-GO
