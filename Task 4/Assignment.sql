@@ -1,4 +1,7 @@
--- Subject Allotment System – Complete SQL Script
+-- TASK: Subject Allotment Stored Procedure
+-- This procedure assigns students to subjects based on GPA and preference.
+-- If a student's top preferences are full, they're marked unallotted.
+-- Tables used: StudentDetails, StudentPreference, SubjectDetails, Allotments, UnallotedStudents
 
 -- 1. Create Required Tables
 
