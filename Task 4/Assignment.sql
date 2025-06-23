@@ -122,3 +122,13 @@ BEGIN
     CLOSE student_cursor;
     DEALLOCATE student_cursor;
 END;
+
+-- 4. Executing the procedure 
+EXEC AllocateSubjects;
+
+-- View Allotments
+SELECT * FROM Allotments;
+-- View Unallotted Students
+SELECT * FROM UnallotedStudents;
+
+GO
