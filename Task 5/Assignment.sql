@@ -31,6 +31,8 @@ CREATE TABLE UnallotedStudents (
     StudentId INT PRIMARY KEY
 );
 
+
+
 -- 2. Inserting Sample Data (From PDF)
 
 -- StudentDetails
@@ -66,6 +68,7 @@ INSERT INTO StudentPreference VALUES
 (159103039, 'PO1492', 1), (159103039, 'PO1493', 2), (159103039, 'PO1494', 3), (159103039, 'PO1495', 4), (159103039, 'PO1491', 5),
 (159103040, 'PO1491', 1), (159103040, 'PO1492', 2), (159103040, 'PO1495', 3), (159103040, 'PO1493', 4), (159103040, 'PO1494', 5),
 (159103041, 'PO1491', 1), (159103041, 'PO1492', 2), (159103041, 'PO1493', 3), (159103041, 'PO1494', 4), (159103041, 'PO1495', 5);
+
 
 
 -- 3. Stored Procedure
