@@ -131,3 +131,11 @@ BEGIN
     CLOSE student_cursor;
     DEALLOCATE student_cursor;
 END;
+
+
+-- 4. Execute and View Results
+
+EXEC AllocateSubjects;
+
+SELECT * FROM Allotments;
+SELECT * FROM UnallotedStudents;
