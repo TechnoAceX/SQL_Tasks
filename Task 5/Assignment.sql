@@ -68,4 +68,66 @@ INSERT INTO StudentPreference VALUES
 (159103041, 'PO1491', 1), (159103041, 'PO1492', 2), (159103041, 'PO1493', 3), (159103041, 'PO1494', 4), (159103041, 'PO1495', 5);
 
 
+-- 3. Stored Procedure
 
+GO
+
+CREATE OR ALTER PROCEDURE AllocateSubjects
+AS
+BEGIN
+    -- Clear existing results
+    DELETE FROM Allotments;
+    DELETE FROM UnallotedStudents;
+
+    DECLARE student_cursor CURSOR FOR
+    SELECT StudentId FROM StudentDetails ORDER BY GPA DESC;
+
+    DECLARE @StudentId INT;
+    DECLARE @SubjectId VARCHAR(10);
+    DECLARE @Preference INT;
+    DECLARE @Allotted BIT;
+
+    OPEN student_cursor;
+    FETCH NEXT FROM student_cursor INTO @StudentId;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        SET @Allotted = 0;
+        SET @Preference = 1;
+
+        WHILE @Preference <= 5 AND @Allotted = 0
+        BEGIN
+            SELECT @SubjectId = SubjectId
+            FROM StudentPreference
+            WHERE StudentId = @StudentId AND Preference = @Preference;
+
+            IF EXISTS (
+                SELECT 1 FROM SubjectDetails
+                WHERE SubjectId = @SubjectId AND RemainingSeats > 0
+            )
+            BEGIN
+                INSERT INTO Allotments (SubjectId, StudentId)
+                VALUES (@SubjectId, @StudentId);
+
+                UPDATE SubjectDetails
+                SET RemainingSeats = RemainingSeats - 1
+                WHERE SubjectId = @SubjectId;
+
+                SET @Allotted = 1;
+            END
+
+            SET @Preference = @Preference + 1;
+        END
+
+        IF @Allotted = 0
+        BEGIN
+            INSERT INTO UnallotedStudents (StudentId)
+            VALUES (@StudentId);
+        END
+
+        FETCH NEXT FROM student_cursor INTO @StudentId;
+    END
+
+    CLOSE student_cursor;
+    DEALLOCATE student_cursor;
+END;
