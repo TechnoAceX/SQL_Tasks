@@ -49,3 +49,10 @@ SELECT e.name AS Employee
 FROM Employee e
 JOIN Employee m ON e.managerId = m.id
 WHERE e.salary > m.salary;
+
+-- 9. Question: Duplicate Emails
+-- https://leetcode.com/problems/duplicate-emails/
+SELECT email
+FROM Person
+GROUP BY email
+HAVING COUNT(*) > 1;
