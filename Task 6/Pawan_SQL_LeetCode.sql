@@ -87,3 +87,10 @@ WHERE (project_id, employee_id) IN (
   FROM Project
   GROUP BY project_id, employee_id
 );
+
+-- 14. Question: Average Time of Process per Machine
+-- https://leetcode.com/problems/average-time-of-process-per-machine/
+SELECT machine_id, ROUND(AVG(end_time - start_time), 3) AS processing_time
+FROM Activity
+WHERE activity_type = 'end'
+GROUP BY machine_id;
