@@ -94,3 +94,10 @@ SELECT machine_id, ROUND(AVG(end_time - start_time), 3) AS processing_time
 FROM Activity
 WHERE activity_type = 'end'
 GROUP BY machine_id;
+
+-- 15. Question: Calculate Special Bonus
+-- https://leetcode.com/problems/calculate-special-bonus/
+SELECT employee_id,
+       CASE WHEN employee_id % 2 = 1 AND name NOT LIKE 'M%' THEN salary ELSE 0 END AS bonus
+FROM Employees
+ORDER BY employee_id;
