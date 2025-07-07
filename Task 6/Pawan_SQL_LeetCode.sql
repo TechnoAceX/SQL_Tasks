@@ -62,3 +62,11 @@ HAVING COUNT(*) > 1;
 SELECT MAX(salary) AS SecondHighestSalary
 FROM Employee
 WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+-- 11. Question: Nth Highest Salary
+-- https://leetcode.com/problems/nth-highest-salary/
+-- (For N = 1, as example)
+SELECT DISTINCT salary AS NthHighestSalary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 0;
