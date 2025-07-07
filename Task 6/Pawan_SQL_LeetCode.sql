@@ -28,3 +28,12 @@ WHERE referee_id != 2 OR referee_id IS NULL;
 SELECT user_id,
        CONCAT(UPPER(LEFT(name,1)), LOWER(SUBSTRING(name,2))) AS name
 FROM Users;
+
+-- 6. Question: Rising Temperature
+-- https://leetcode.com/problems/rising-temperature/
+SELECT w1.id
+FROM Weather w1
+JOIN Weather w2 ON DATEDIFF(w1.recordDate, w2.recordDate) = 1
+WHERE w1.temperature > w2.temperature;
+
+
