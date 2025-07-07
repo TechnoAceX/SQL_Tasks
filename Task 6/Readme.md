@@ -25,5 +25,20 @@ This assignment aims to strengthen foundational SQL skills by solving **15 easy-
 ---
 
 
+## 🧠 Questions Included
+
+Each question includes:
+- Problem Title
+- Direct LeetCode Link
+- Clean SQL Query
+- Comments for clarity
+
+All problems were solved in **standard SQL syntax**, tested and validated on LeetCode’s platform.
+
+---
+
+
+
+
 
 
