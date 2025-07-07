@@ -22,3 +22,9 @@ WHERE bonus < 1000 OR bonus IS NULL;
 SELECT name
 FROM Customer
 WHERE referee_id != 2 OR referee_id IS NULL;
+
+-- 5. Question: Fix Names in a Table
+-- https://leetcode.com/problems/fix-names-in-a-table/
+SELECT user_id,
+       CONCAT(UPPER(LEFT(name,1)), LOWER(SUBSTRING(name,2))) AS name
+FROM Users;
