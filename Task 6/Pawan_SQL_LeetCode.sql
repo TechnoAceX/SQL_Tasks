@@ -70,3 +70,10 @@ SELECT DISTINCT salary AS NthHighestSalary
 FROM Employee
 ORDER BY salary DESC
 LIMIT 1 OFFSET 0;
+
+-- 12. Question: Not Boring Movies
+-- https://leetcode.com/problems/not-boring-movies/
+SELECT *
+FROM Cinema
+WHERE id % 2 = 1 AND description != 'boring'
+ORDER BY rating DESC;
