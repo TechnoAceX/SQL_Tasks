@@ -36,4 +36,9 @@ FROM Weather w1
 JOIN Weather w2 ON DATEDIFF(w1.recordDate, w2.recordDate) = 1
 WHERE w1.temperature > w2.temperature;
 
-
+-- 7. Question: Classes More Than 5 Students
+-- https://leetcode.com/problems/classes-more-than-5-students/
+SELECT class
+FROM Courses
+GROUP BY class
+HAVING COUNT(DISTINCT student) >= 5;
