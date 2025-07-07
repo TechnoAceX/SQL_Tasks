@@ -56,3 +56,9 @@ SELECT email
 FROM Person
 GROUP BY email
 HAVING COUNT(*) > 1;
+
+-- 10. Question: Second Highest Salary
+-- https://leetcode.com/problems/second-highest-salary/
+SELECT MAX(salary) AS SecondHighestSalary
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
