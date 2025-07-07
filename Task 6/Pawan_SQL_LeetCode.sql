@@ -77,3 +77,13 @@ SELECT *
 FROM Cinema
 WHERE id % 2 = 1 AND description != 'boring'
 ORDER BY rating DESC;
+
+-- 13. Question: Project Employees I
+-- https://leetcode.com/problems/project-employees-i/
+SELECT project_id, employee_id
+FROM Project
+WHERE (project_id, employee_id) IN (
+  SELECT project_id, employee_id
+  FROM Project
+  GROUP BY project_id, employee_id
+);
