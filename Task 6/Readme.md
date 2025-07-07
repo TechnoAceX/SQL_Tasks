@@ -37,8 +37,5 @@ All problems were solved in **standard SQL syntax**, tested and validated on Lee
 
 ---
 
-
-
-
-
-
+All problems sourced from:  
+👉 [https://leetcode.com/problemset/database/](https://leetcode.com/problemset/database/)
