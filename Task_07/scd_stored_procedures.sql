@@ -39,3 +39,26 @@ BEGIN
         JOIN dim_customer d ON s.customer_id = d.customer_id
         WHERE s.email <> d.email AND d.current_flag = 'Y'
     );
+
+    -- Insert new version
+    INSERT INTO dim_customer (customer_id, email, start_date, end_date, current_flag, version)
+    SELECT s.customer_id, s.email, current_date, '9999-12-31', 'Y', COALESCE(d.version, 0) + 1
+    FROM stg_customer s
+    LEFT JOIN dim_customer d ON s.customer_id = d.customer_id AND d.current_flag = 'Y'
+    WHERE d.customer_id IS NULL OR s.email <> d.email;
+END;
+
+
+-- SCD Type 3 – Limited History (Previous value stored)
+CREATE PROCEDURE scd_type_3()
+BEGIN
+    MERGE INTO dim_customer AS target
+    USING stg_customer AS source
+    ON target.customer_id = source.customer_id
+    WHEN MATCHED AND target.email <> source.email THEN
+        UPDATE SET target.prev_email = target.email,
+                   target.email = source.email
+    WHEN NOT MATCHED THEN
+        INSERT (customer_id, email)
+        VALUES (source.customer_id, source.email);
+END;
