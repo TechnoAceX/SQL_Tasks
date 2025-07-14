@@ -80,3 +80,29 @@ BEGIN
     FROM stg_customer s
     WHERE dim_customer.customer_id = s.customer_id AND dim_customer.email <> s.email;
 END;
+
+
+-- SCD Type 6 – Hybrid (Type 1 + 2 + 3)
+CREATE PROCEDURE scd_type_6()x
+BEGIN
+    DECLARE current_date DATE;
+    SET current_date = CURRENT_DATE;
+
+    -- Expire old record and insert new
+    UPDATE dim_customer
+    SET end_date = current_date - INTERVAL 1 DAY,
+        current_flag = 'N'
+    WHERE customer_id IN (
+        SELECT s.customer_id
+        FROM stg_customer s
+        JOIN dim_customer d ON s.customer_id = d.customer_id
+        WHERE s.email <> d.email AND d.current_flag = 'Y'
+    );
+
+    INSERT INTO dim_customer (customer_id, email, prev_email, start_date, end_date, current_flag, version)
+    SELECT s.customer_id, s.email, d.email, current_date, '9999-12-31', 'Y', COALESCE(d.version, 0) + 1
+    FROM stg_customer s
+    LEFT JOIN dim_customer d ON s.customer_id = d.customer_id AND d.current_flag = 'Y'
+    WHERE d.customer_id IS NULL OR s.email <> d.email;
+END;
+
