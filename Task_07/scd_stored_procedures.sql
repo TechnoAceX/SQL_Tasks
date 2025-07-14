@@ -62,3 +62,21 @@ BEGIN
         INSERT (customer_id, email)
         VALUES (source.customer_id, source.email);
 END;
+
+
+-- SCD Type 4 – History Table
+CREATE PROCEDURE scd_type_4()
+BEGIN
+    -- Insert into history table
+    INSERT INTO hist_customer (customer_id, email, change_date)
+    SELECT d.customer_id, d.email, CURRENT_DATE
+    FROM stg_customer s
+    JOIN dim_customer d ON s.customer_id = d.customer_id
+    WHERE s.email <> d.email;
+
+    -- Update main dimension table
+    UPDATE dim_customer
+    SET email = s.email
+    FROM stg_customer s
+    WHERE dim_customer.customer_id = s.customer_id AND dim_customer.email <> s.email;
+END;
