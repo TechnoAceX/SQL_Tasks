@@ -48,4 +48,7 @@ This SQL file contains the following procedures:
 
 ---
 
+## ✅ How to Use
+
+Run the procedures one by one in your SQL environment. Make sure the staging (`stg_customer`), dimension (`dim_customer`), and history (`hist_customer`) tables exist with appropriate schema.
 
