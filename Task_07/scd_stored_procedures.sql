@@ -21,3 +21,21 @@ BEGIN
         INSERT (customer_id, email)
         VALUES (source.customer_id, source.email);
 END;
+
+
+-- SCD Type 2 – Full History (Versioning)
+CREATE PROCEDURE scd_type_2()
+BEGIN
+    DECLARE current_date DATE;
+    SET current_date = CURRENT_DATE;
+
+    -- Expire old record
+    UPDATE dim_customer
+    SET end_date = current_date - INTERVAL 1 DAY,
+        current_flag = 'N'
+    WHERE customer_id IN (
+        SELECT s.customer_id
+        FROM stg_customer s
+        JOIN dim_customer d ON s.customer_id = d.customer_id
+        WHERE s.email <> d.email AND d.current_flag = 'Y'
+    );
