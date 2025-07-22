@@ -1,5 +1,7 @@
 # Time Dimension Stored Procedure — Internship Task
 
+Write a Stored Procedure that populates a table with certain date attributes. The data would be populated for 1 year. For example the date 14-07-2020 is passed as an input parameter, then the stored procedure will populate those attributes for all the dates present within the year 2020. The primary key for this table would be date column. In order to find sample data and list of attributes please click on the link. Constraint: More than one insert statement cannot be used
+
 ## 📋 Task Overview
 The objective of this task is to create a **MySQL Stored Procedure** that populates a **Time Dimension Table** for all dates within a given year, based on a provided input date.
 
