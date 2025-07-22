@@ -30,7 +30,3 @@ A total of 9 queries were written to answer analytical and reporting questions u
 - GitHub for version control
 
 ---
-
-## 📂 File Structure
-
-
