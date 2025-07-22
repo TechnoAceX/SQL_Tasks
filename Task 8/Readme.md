@@ -49,7 +49,7 @@ The table was designed with the following attributes (based on the provided Exce
 
 ---
 
-##📄 Note
+## 📄 Note
 The attached Excel sheet served as a reference for expected columns only.
 All data is dynamically generated at runtime based on the input date.
 
