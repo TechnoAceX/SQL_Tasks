@@ -24,4 +24,4 @@ Each task corresponds to weekly assignments designed to enhance SQL knowledge an
 
 1. **Clone this repository:**  
    ```bash
-   git clone https://github.com/your-username/sql-internship-tasks.git
+   [git clone https://github.com/your-username/sql-internship-tasks.git](https://github.com/TechnoAceX/SQL_Tasks.git)
