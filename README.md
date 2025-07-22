@@ -1,30 +1,27 @@
 # 📊 SQL Internship Tasks Repository
 
-This repository contains SQL scripts and solutions completed as part of the **SQL Internship Program**.  
-Each task is designed to strengthen practical knowledge of SQL concepts through hands-on exercises and real-world scenarios.
+This repository contains SQL scripts and solutions completed during the **SQL Internship Program**.  
+Each task corresponds to weekly assignments designed to enhance SQL knowledge and hands-on skills.
 
 ---
 
-## 📝 Important Note  
+## 📑 Weekly Task Summary  
 
-> 📄 The provided Excel sheet was used solely as a **reference for expected column structures**.  
-> All data used in the tasks is **dynamically generated at runtime** through SQL queries and scripts.
+| Week | Topic |
+|------|-----------------------------|
+| Week 1 | DDL (Data Definition Language) |
+| Week 2 | Built-In Functions |
+| Week 3 | Indexes |
+| Week 4 | Triggers |
+| Week 5 | CTE (Common Table Expressions) |
+| Week 6 | Pivot |
+| Week 7 | Star and Snowflake Schema |
+| Week 8 | CDC (Change Data Capture) |
 
 ---
 
-## 🗂️ Repository Structure  
-/SQL-Internship-Tasks
-├── Task-01.sql
-├── Task-02.sql
-├── Task-03.sql
-├── Task-04.sql
-├── Task-05.sql
-├── Task-06.sql
-├── Task-07.sql
-├── Task-08.sql
-└── README.md
+## 🚀 How to Use  
 
-yaml
-Copy
-Edit
-
+1. **Clone this repository:**  
+   ```bash
+   git clone https://github.com/your-username/sql-internship-tasks.git
